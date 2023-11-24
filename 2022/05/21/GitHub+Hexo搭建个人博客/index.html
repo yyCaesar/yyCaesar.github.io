@@ -16,22 +16,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="this is my first article!!!">
+    <meta name="description" content="一时兴起，没想到折腾我几天时间，一路踩坑摸索解决方案，终于反复建站、删除仓库，建站、删除仓库……倒也成为一件乐趣。 因此记录，按照文章的步骤执行，可节省踩坑的时间。 环境搭建 node (建议使用 Node.js 12.0 及以上版本)  git  github   github1.设置公钥12345671.生成ssh keyssh-keygen -t rsa -C &quot;你的Github邮">
 <meta property="og:type" content="article">
-<meta property="og:title" content="My New Post">
-<meta property="og:url" content="http://example.com/2023/11/24/My-New-Post/index.html">
+<meta property="og:title" content="GitHub+Hexo搭建个人博客">
+<meta property="og:url" content="http://example.com/2022/05/21/GitHub+Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="this is my first article!!!">
+<meta property="og:description" content="一时兴起，没想到折腾我几天时间，一路踩坑摸索解决方案，终于反复建站、删除仓库，建站、删除仓库……倒也成为一件乐趣。 因此记录，按照文章的步骤执行，可节省踩坑的时间。 环境搭建 node (建议使用 Node.js 12.0 及以上版本)  git  github   github1.设置公钥12345671.生成ssh keyssh-keygen -t rsa -C &quot;你的Github邮">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-11-24T07:26:21.000Z">
-<meta property="article:modified_time" content="2023-11-24T07:33:44.284Z">
+<meta property="article:published_time" content="2022-05-21T08:32:51.000Z">
+<meta property="article:modified_time" content="2023-11-24T08:34:07.645Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="11">
+<meta property="article:tag" content="技术分享">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>My New Post - Hexo</title>
+  <title>GitHub+Hexo搭建个人博客 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="My New Post"></span>
+            <span id="subtitle" data-typed-text="GitHub+Hexo搭建个人博客"></span>
           
         </div>
 
@@ -208,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-24 15:26" pubdate>
-          2023年11月24日 下午
+        <time datetime="2022-05-21 16:32" pubdate>
+          2022年5月21日 下午
         </time>
       </span>
     
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          23 字
+          1.2k 字
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          1 分钟
+          11 分钟
         
       </span>
     
@@ -268,12 +268,83 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">My New Post</h1>
+            <h1 id="seo-header">GitHub+Hexo搭建个人博客</h1>
             
             
               <div class="markdown-body">
                 
-                <p>this is my first article!!!</p>
+                <p>一时兴起，没想到折腾我几天时间，一路踩坑摸索解决方案，终于反复建站、删除仓库，建站、删除仓库……倒也成为一件乐趣。</p>
+<p>因此记录，按照文章的步骤执行，可节省踩坑的时间。</p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><ul>
+<li><p>node (建议使用 Node.js 12.0 及以上版本)</p>
+</li>
+<li><p>git</p>
+</li>
+<li><p>github</p>
+</li>
+</ul>
+<h2 id="github"><a href="#github" class="headerlink" title="github"></a>github</h2><h3 id="1-设置公钥"><a href="#1-设置公钥" class="headerlink" title="1.设置公钥"></a>1.设置公钥</h3><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-number">1.</span>生成<span class="hljs-variable">ssh</span> <span class="hljs-variable">key</span><br><span class="hljs-variable">ssh</span><span class="hljs-operator">-</span><span class="hljs-variable">keygen</span> <span class="hljs-operator">-</span><span class="hljs-variable">t</span> <span class="hljs-variable">rsa</span> <span class="hljs-operator">-</span><span class="hljs-built_in">C</span> <span class="hljs-string">&quot;你的Github邮箱&quot;</span><br><br><span class="hljs-number">2.</span><span class="hljs-variable">ssh</span><br>接着去查看<span class="hljs-built_in">C</span>盘目录下的<span class="hljs-operator">.</span><span class="hljs-variable">ssh</span><span class="hljs-punctuation">(</span>此文件夹所在<span class="hljs-built_in">C</span><span class="hljs-operator">:</span>\用户\用户名目录下<span class="hljs-punctuation">)</span><span class="hljs-operator">,</span>打开并复制<span class="hljs-type">id_rsa</span><span class="hljs-operator">.</span><span class="hljs-variable">put</span>生成的<span class="hljs-variable">key</span><br><br><span class="hljs-number">3.</span>将<span class="hljs-variable">key</span>配置到<span class="hljs-variable">guthub</span> <span class="hljs-operator">-&gt;</span> <span class="hljs-built_in">Deploy</span> <span class="hljs-variable">keys</span>里，然后保存<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-验证秘钥连接是否成功"><a href="#2-验证秘钥连接是否成功" class="headerlink" title="2.验证秘钥连接是否成功"></a>2.验证秘钥连接是否成功</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">ssh</span> -T git<span class="hljs-variable">@github</span>.com<br></code></pre></td></tr></table></figure>
+
+<p>显示 <code>Hi xxx! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code> 表示成功！</p>
+<h3 id="3-修改Hexo项目-config-yml文件"><a href="#3-修改Hexo项目-config-yml文件" class="headerlink" title="3.修改Hexo项目_config.yml文件"></a>3.修改Hexo项目_config.yml文件</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">deploy:</span>	<br><span class="hljs-symbol">	type:</span> git<br><span class="hljs-symbol">    repo:</span> <span class="hljs-comment">//github code的地址https/ssh直接复制</span><br><span class="hljs-symbol">    branch:</span> main<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-创建Github-Pages-仓库"><a href="#4-创建Github-Pages-仓库" class="headerlink" title="4.创建Github Pages 仓库"></a>4.创建Github Pages 仓库</h3><ul>
+<li>Repository name 输入 <code>你的用户名.github.io</code></li>
+<li>create repository</li>
+</ul>
+<h3 id="4-部署上传"><a href="#4-部署上传" class="headerlink" title="4.部署上传"></a>4.部署上传</h3><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">hexo <span class="hljs-keyword">clear</span>   	<span class="hljs-comment">#清除缓存 </span><br>hexo generate   <span class="hljs-comment">#生成静态文件</span><br>hexo <span class="hljs-keyword">deploy</span>     <span class="hljs-comment">#部署到Github </span><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h2><h3 id="1-安装hexo"><a href="#1-安装hexo" class="headerlink" title="1.安装hexo"></a>1.安装hexo</h3><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm">npm install -g hexo-<span class="hljs-keyword">cli</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-初始化"><a href="#2-初始化" class="headerlink" title="2.初始化"></a>2.初始化</h3><p>新建文件夹，依次输入以下指令</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cmake">hexo init		<span class="hljs-comment"># 初始化</span><br>npm <span class="hljs-keyword">install</span>		<span class="hljs-comment"># 安装组件</span><br>hexo g   		<span class="hljs-comment"># 生成页面</span><br>hexo s  	    <span class="hljs-comment"># 启动预览</span><br></code></pre></td></tr></table></figure>
+
+<p>[^tip]: 如果启动预览加载不出来，则关闭服务，运行 <code>hexo server -p 8888 (重设端口号)</code></p>
+<h3 id="3-部署Hexo到Github-Pages"><a href="#3-部署Hexo到Github-Pages" class="headerlink" title="3.部署Hexo到Github Pages"></a>3.部署Hexo到Github Pages</h3><p>安装<code>hexo-deployer-git</code></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">npm install hexo-deployer-git <span class="hljs-comment">--save</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>修改_config.yml配置文件</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">deploy:</span><br><span class="hljs-symbol">  type:</span> git<br><span class="hljs-symbol">  repository:</span> git@github.com:用户名/用户名.github.io.git<br><span class="hljs-symbol">  branch:</span> main<br></code></pre></td></tr></table></figure>
+
+
+
+<p>修改完毕执行<code>hexo d</code> 则将网站上传部署到Github Pages</p>
+<p>访问GitHub 域名 https:&#x2F;&#x2F;用户名.github.io，就能正常访问博客网站</p>
+<p> 主题</p>
+<p>进入博客目录通过npm直接安装，执行如下命名</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> -save hexo-theme-volantis（主题）<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="开始使用Hexo发布博客"><a href="#开始使用Hexo发布博客" class="headerlink" title="开始使用Hexo发布博客"></a>开始使用Hexo发布博客</h2><p>1.进入博客文件夹，创造博文，新的博文会在<code>source</code>  -&gt;  <code>_post</code>文件夹里新增</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs actionscript">hexo <span class="hljs-keyword">new</span> <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>2.编辑文章完成，准备发布</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">hexo</span> g   <span class="hljs-comment"># 生成页面</span><br>hexo d   <span class="hljs-comment"># 部署发布</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>3.发布完成，访问网站不会立即显示，需要清理浏览器缓存</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-symbol">ctrl</span> + <span class="hljs-built_in">F5</span><br></code></pre></td></tr></table></figure>
+
+
+
 
                 
               </div>
@@ -286,7 +357,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/11/" class="print-no-link">#11</a>
+        <a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" class="print-no-link">#技术分享</a>
       
     </div>
   
@@ -298,8 +369,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>My New Post</div>
-      <div>http://example.com/2023/11/24/My-New-Post/</div>
+      <div>GitHub+Hexo搭建个人博客</div>
+      <div>http://example.com/2022/05/21/GitHub+Hexo搭建个人博客/</div>
     </div>
     <div class="license-meta">
       
@@ -311,7 +382,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年11月24日</div>
+          <div>2022年5月21日</div>
         </div>
       
       
@@ -343,12 +414,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2023/11/24/hello-world/" title="Hello World">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/24/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2022/05/20/My-New-Post/" title="My New Post">
+                        <span class="hidden-mobile">My New Post</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
