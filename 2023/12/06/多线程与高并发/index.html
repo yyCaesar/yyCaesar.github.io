@@ -16,28 +16,22 @@
   <meta name="author" content="Ty">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Typora+PicGo+SMMS打造个人图床工具 PicGo (图床工具)  Typora（markdown编辑器）  SM.MS （图片储存及分享服务）   步骤1.SM.MS地址：https:&#x2F;&#x2F;sm.ms&#x2F; 注册成功会有免费的5G存储空间，够用几年了。 进入仪表盘，选择API Token，生成token，等会就要用到。  2.PicGo下载PicGo官方解释: 一个用于快速上传图片并获取图">
+    <meta name="description" content="多线程理论 并行和并发 线程 线程和进程 实现线程的方式 线程常用方法 线程的生命周期 线程安全  什么是进程和线程？百科解释：   进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配的基本单位，是操作系统结构的基础   线程（英语：thread）在计算机科学中，是将进程划分为两个或多个线程（实例）或子进程，由单处理器（单线程）或多处理器（多线程）或多核处理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Typora+PicGo+SMMS打造个人图床">
-<meta property="og:url" content="http://example.com/2022/06/01/Typora+PicGo+SMMS%E6%89%93%E9%80%A0%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A/index.html">
+<meta property="og:title" content="多线程与高并发">
+<meta property="og:url" content="http://example.com/2023/12/06/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E9%AB%98%E5%B9%B6%E5%8F%91/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Typora+PicGo+SMMS打造个人图床工具 PicGo (图床工具)  Typora（markdown编辑器）  SM.MS （图片储存及分享服务）   步骤1.SM.MS地址：https:&#x2F;&#x2F;sm.ms&#x2F; 注册成功会有免费的5G存储空间，够用几年了。 进入仪表盘，选择API Token，生成token，等会就要用到。  2.PicGo下载PicGo官方解释: 一个用于快速上传图片并获取图">
+<meta property="og:description" content="多线程理论 并行和并发 线程 线程和进程 实现线程的方式 线程常用方法 线程的生命周期 线程安全  什么是进程和线程？百科解释：   进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配的基本单位，是操作系统结构的基础   线程（英语：thread）在计算机科学中，是将进程划分为两个或多个线程（实例）或子进程，由单处理器（单线程）或多处理器（多线程）或多核处理">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2023/11/23/gCK9vGpIsQFDq4a.png">
-<meta property="og:image" content="https://s2.loli.net/2023/11/23/utnswakfLDpyeOo.png">
-<meta property="og:image" content="https://s2.loli.net/2023/11/23/L7u8lFAti9yqa24.png">
-<meta property="og:image" content="https://s2.loli.net/2023/11/23/sDVlxqz54Y6oBdh.png">
-<meta property="og:image" content="https://s2.loli.net/2023/11/23/F8tNcXsl9mVW6KQ.png">
-<meta property="article:published_time" content="2022-06-01T08:32:51.000Z">
-<meta property="article:modified_time" content="2023-11-25T06:08:56.866Z">
+<meta property="article:published_time" content="2023-12-06T06:21:49.000Z">
+<meta property="article:modified_time" content="2023-12-06T07:55:13.019Z">
 <meta property="article:author" content="Ty">
-<meta property="article:tag" content="技术分享">
+<meta property="article:tag" content="多线程高并发">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s2.loli.net/2023/11/23/gCK9vGpIsQFDq4a.png">
   
   
   
-  <title>Typora+PicGo+SMMS打造个人图床 - Hexo</title>
+  <title>多线程与高并发 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -203,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Typora+PicGo+SMMS打造个人图床"></span>
+            <span id="subtitle" data-typed-text="多线程与高并发"></span>
           
         </div>
 
@@ -214,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-06-01 16:32" pubdate>
-          2022年6月1日 下午
+        <time datetime="2023-12-06 14:21" pubdate>
+          2023年12月6日 下午
         </time>
       </span>
     
@@ -226,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          617 字
+          1.6k 字
         
       </span>
     
@@ -237,7 +231,7 @@
         
         
         
-          6 分钟
+          14 分钟
         
       </span>
     
@@ -274,63 +268,65 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Typora+PicGo+SMMS打造个人图床</h1>
+            <h1 id="seo-header">多线程与高并发</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Typora-PicGo-SMMS打造个人图床"><a href="#Typora-PicGo-SMMS打造个人图床" class="headerlink" title="Typora+PicGo+SMMS打造个人图床"></a>Typora+PicGo+SMMS打造个人图床</h1><h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><ul>
-<li><p>PicGo (图床工具)</p>
+                <ul>
+<li>多线程理论</li>
+<li>并行和并发</li>
+<li>线程</li>
+<li>线程和进程</li>
+<li>实现线程的方式</li>
+<li>线程常用方法</li>
+<li>线程的生命周期</li>
+<li>线程安全</li>
+</ul>
+<h1 id="什么是进程和线程？"><a href="#什么是进程和线程？" class="headerlink" title="什么是进程和线程？"></a>什么是进程和线程？</h1><p>百科解释：</p>
+<blockquote>
+<p> 进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配的基本单位，是操作系统结构的基础</p>
+</blockquote>
+<blockquote>
+<p>线程（英语：thread）在计算机科学中，是将进程划分为两个或多个线程（实例）或子进程，由单处理器（单线程）或多处理器（多线程）或多核处理系统并发执行。</p>
+</blockquote>
+<p>网上的解释，看的我一脸懵逼。</p>
+<p>举个通俗的例子，假设你经营着一家洗衣房，一开始活比较少，帮完老张洗完衣服后，接着帮老刘洗衣服。这种叫<strong>单线程，所有工作得按顺序执行</strong>。</p>
+<p>后来活变多了，自己忙不过来，得请人，你的洗衣房可以同时给很多人洗衣服，这叫<strong>多线程，你就是主线程</strong>。</p>
+<p>你请的工人要使用一些清洁工具，是洗衣房去采购，供大家使用，属于集体资源，这叫<strong>多线程共享资源</strong>。</p>
+<p>在工作中都需要用到洗衣液、熨斗等工具，假如这些只能同时供一个人使用，这叫<strong>冲突</strong>，解决冲突的办法是排队等使用者用完后，通知你，我用完了，你来用吧。这叫<strong>线程同步</strong>。</p>
+<p>在某天你接到一个大客户，比较急，让你先帮忙做。于是你把工人喊来，停掉手中的活，先做这个大客户的。这叫<strong>优先级</strong>。你看到他们还在磨磨唧唧，你说可以开始干活了，这叫<strong>启动线程</strong>。这个客户重要，你全程参与或监工到工作完成，这叫<strong>线程参与</strong>。</p>
+<p>活少的时候就能喝喝茶，一看时间，哟，快下班了，赶紧通知等下来开会，不管剩下的人下班后是否有约会，都必须跟你走。因此如果有必要，你得避免不要在工人正忙着的时候发下班的通知，这叫<strong>线程守护属性设置和管理</strong>。</p>
+<p>经过几年的发展，赚了一些钱，又在其他地方建立了分公司。运营机制几乎都一样，这叫<strong>多进程</strong>。总公司叫<strong>主进程</strong>，分公司叫子进程。</p>
+<p>各个分公司之间的工具都是独立的，不能借用，混用。这叫<strong>进程间不能共享资源</strong>。</p>
+<p>各个分公司之间可以通过专线电话联系，这叫<strong>管道</strong>。</p>
+<p>各个分公司还可以通过指定公告栏交换信息，这叫<strong>进程间共享内存</strong>。</p>
+<p>各个分公司还建立了互相合作帮扶机制，达成某种共识，以致做大做强。这叫<strong>进程间同步</strong>。</p>
+<p>各个分公司的考勤和总公司一样，到点下班，或者做完事情再下班，这叫<strong>守护进程设置</strong>。</p>
+<p>所以进程可以说是一个可执行程序，在进程中，可以创建多个线程。如QQ，在同一时刻可以聊天，听歌，发邮件。分别去做不同的工作。</p>
+<h1 id="使用多线程"><a href="#使用多线程" class="headerlink" title="使用多线程"></a>使用多线程</h1><p>继承Thread类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ExtendThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Thread</span> &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) &#123;<br>            System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot; &quot;</span> + i);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="继承Thread类的优缺点"><a href="#继承Thread类的优缺点" class="headerlink" title="继承Thread类的优缺点"></a><strong>继承Thread类的优缺点</strong></h3><ul>
+<li><p>编码简单</p>
 </li>
-<li><p>Typora（markdown编辑器）</p>
-</li>
-<li><p>SM.MS （图片储存及分享服务）</p>
+<li><p>线程类继承了Thread类，就无法继承其他类了，功能不能通过其他类继承拓展，功能没有那么强大。</p>
 </li>
 </ul>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="1-SM-MS"><a href="#1-SM-MS" class="headerlink" title="1.SM.MS"></a>1.SM.MS</h3><p>地址：<a target="_blank" rel="noopener" href="https://sm.ms/">https://sm.ms/</a></p>
-<p>注册成功会有免费的5G存储空间，够用几年了。</p>
-<p>进入仪表盘，选择API Token，生成token，等会就要用到。</p>
-<p><img src="https://s2.loli.net/2023/11/23/gCK9vGpIsQFDq4a.png" srcset="/img/loading.gif" lazyload alt="image-20231123103837344"></p>
-<h3 id="2-PicGo下载"><a href="#2-PicGo下载" class="headerlink" title="2.PicGo下载"></a>2.PicGo下载</h3><p>PicGo官方解释: 一个用于快速上传图片并获取图片 URL 链接的工具</p>
-<p>下载安装推荐镜像，比较快速。</p>
-<table>
-<thead>
-<tr>
-<th align="center">下载源</th>
-<th align="center">地址&#x2F;安装方式</th>
-<th align="center">平台</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">GitHub Release</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></td>
-<td align="center">All</td>
-</tr>
-<tr>
-<td align="center">腾讯云COS</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></td>
-<td align="center">All</td>
-</tr>
-<tr>
-<td align="center">山东大学镜像站</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://mirrors.sdu.edu.cn/github-release/Molunerfinn_PicGo">https://mirrors.sdu.edu.cn/github-release/Molunerfinn_PicGo</a></td>
-<td align="center">All</td>
-</tr>
-</tbody></table>
-<p>安装完成，打开应用界面如下。</p>
-<p><img src="https://s2.loli.net/2023/11/23/utnswakfLDpyeOo.png" srcset="/img/loading.gif" lazyload alt="image-20231123102731049"></p>
-<p>下载插件，搜索<code>smms-user</code></p>
-<p><img src="https://s2.loli.net/2023/11/23/L7u8lFAti9yqa24.png" srcset="/img/loading.gif" lazyload alt="image-20231123104414698"></p>
-<p>接着进入图床设置，将token复制进来，备用上传域名默认<code>smms.app</code>，点击确认保存即可。</p>
-<p><img src="https://s2.loli.net/2023/11/23/sDVlxqz54Y6oBdh.png" srcset="/img/loading.gif" lazyload alt="image-20231123104239392"></p>
-<h3 id="3-Typora"><a href="#3-Typora" class="headerlink" title="3.Typora"></a>3.Typora</h3><p>地址：<a target="_blank" rel="noopener" href="https://typoraio.cn/">https://typoraio.cn/</a></p>
-<p>安装完毕后，打开<code>文件-偏好设置-图像</code>，按照如下图片对应勾选即可。</p>
-<p><img src="https://s2.loli.net/2023/11/23/F8tNcXsl9mVW6KQ.png" srcset="/img/loading.gif" lazyload alt="image-20231123104844159"></p>
-<h3 id="4-测试是否成功"><a href="#4-测试是否成功" class="headerlink" title="4.测试是否成功"></a>4.测试是否成功</h3><ul>
-<li>复制图片到Markdown文档</li>
-<li>检查SM.MS是否有上传的图片即可。</li>
+<p>实现Runnable接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyRun</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Runnable</span> &#123;<br>  <span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span><span class="hljs-number">1</span>;i&lt;<span class="hljs-number">10</span>;i++)&#123;<br>      System.out.println(<span class="hljs-string">&quot;Thread&quot;</span>+i);<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="实现Runnable的接口的优点"><a href="#实现Runnable的接口的优点" class="headerlink" title="实现Runnable的接口的优点"></a>实现Runnable的接口的优点</h3><ul>
+<li>线程任务类只是实现了Runnable接口，可以继续继承其他类，而且可以继续实现其他接口（避免了单继承的局限性）</li>
+<li>同一个线程任务对象可以被包装成多个线程对象</li>
+<li>适合多个多个线程去共享同一个资源</li>
+<li>实现解耦操作，线程任务代码可以被多个线程共享，线程任务代码和线程独立。</li>
+<li>线程池可以放入实现Runable或Callable线程任务对象。</li>
+<li>其实Thread类本身也是实现了Runnable接口的。</li>
+<li>唯一的遗憾是不能直接得到线程执行的结果！</li>
 </ul>
-<p>该文章用以上技术<code>Typera、PicGo、SM.MS</code>作成。</p>
 
                 
               </div>
@@ -343,7 +339,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" class="print-no-link">#技术分享</a>
+        <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E5%B9%B6%E5%8F%91/" class="print-no-link">#多线程高并发</a>
       
     </div>
   
@@ -355,8 +351,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Typora+PicGo+SMMS打造个人图床</div>
-      <div>http://example.com/2022/06/01/Typora+PicGo+SMMS打造个人图床/</div>
+      <div>多线程与高并发</div>
+      <div>http://example.com/2023/12/06/多线程与高并发/</div>
     </div>
     <div class="license-meta">
       
@@ -368,7 +364,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年6月1日</div>
+          <div>2023年12月6日</div>
         </div>
       
       
@@ -400,18 +396,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/24/hello-world/" title="Hello World">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Hello World</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/01/TCPIP/" title="TCP/IP">
-                        <span class="hidden-mobile">TCP/IP</span>
+                      <a href="/2023/11/24/hello-world/" title="Hello World">
+                        <span class="hidden-mobile">Hello World</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
